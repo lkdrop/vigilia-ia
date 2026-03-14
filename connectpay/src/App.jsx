@@ -4,10 +4,16 @@ import DashboardLayout from './components/layout/DashboardLayout'
 
 // Pages
 import Login from './pages/Login'
+import Register from './pages/Register'
+import Checkout from './pages/Checkout'
 import AdminDashboard from './pages/admin/Dashboard'
 import Merchants from './pages/admin/Merchants'
 import AdminTransactions from './pages/admin/Transactions'
 import MerchantOverview from './pages/merchant/Overview'
+import MerchantTransactions from './pages/merchant/Transactions'
+import Balance from './pages/merchant/Balance'
+import Products from './pages/merchant/Products'
+import Disputes from './pages/merchant/Disputes'
 import PlaceholderPage from './pages/PlaceholderPage'
 
 function App() {
@@ -17,7 +23,8 @@ function App() {
         <Routes>
           {/* Public */}
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/pay/:checkoutId" element={<Checkout />} />
 
           {/* Admin routes */}
           <Route element={<DashboardLayout />}>
@@ -37,12 +44,12 @@ function App() {
 
             {/* Merchant routes */}
             <Route path="/dashboard" element={<MerchantOverview />} />
-            <Route path="/dashboard/transactions" element={<PlaceholderPage title="Transacoes" subtitle="Suas transacoes" />} />
-            <Route path="/dashboard/balance" element={<PlaceholderPage title="Saldo e Saques" subtitle="Gerencie seu saldo" />} />
-            <Route path="/dashboard/products" element={<PlaceholderPage title="Produtos" subtitle="Seus produtos cadastrados" />} />
+            <Route path="/dashboard/transactions" element={<MerchantTransactions />} />
+            <Route path="/dashboard/balance" element={<Balance />} />
+            <Route path="/dashboard/products" element={<Products />} />
             <Route path="/dashboard/checkout-links" element={<PlaceholderPage title="Links de Checkout" subtitle="Links de pagamento" />} />
             <Route path="/dashboard/customers" element={<PlaceholderPage title="Clientes" subtitle="Seus compradores" />} />
-            <Route path="/dashboard/disputes" element={<PlaceholderPage title="Disputas" subtitle="Chargebacks e disputas" />} />
+            <Route path="/dashboard/disputes" element={<Disputes />} />
             <Route path="/dashboard/webhooks" element={<PlaceholderPage title="Webhooks" subtitle="Configurar webhooks" />} />
             <Route path="/dashboard/api-keys" element={<PlaceholderPage title="API Keys" subtitle="Chaves de integracao" />} />
             <Route path="/dashboard/settings" element={<PlaceholderPage title="Configuracoes" subtitle="Configuracoes da conta" />} />
